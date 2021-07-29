@@ -1,8 +1,8 @@
 package main
 
 import (
-	"beast-backend/notifier/config"
 	"fmt"
+	"github.com/provsalt/beast-backend/notifier/config"
 )
 
 func main() {

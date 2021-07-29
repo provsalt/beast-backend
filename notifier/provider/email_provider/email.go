@@ -1,10 +1,10 @@
 package email_provider
 
 import (
-	"beast-backend/notifier/provider"
 	"context"
 	"fmt"
 	"github.com/mailgun/mailgun-go/v4"
+	"github.com/provsalt/beast-backend/notifier/provider"
 	"regexp"
 	"time"
 )
