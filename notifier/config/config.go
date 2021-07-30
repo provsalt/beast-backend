@@ -7,6 +7,7 @@ import (
 	"os"
 )
 
+// Config is the configuration structure
 type Config struct {
 	Email struct {
 		Enabled       bool   `yaml:"enabled"`
@@ -16,6 +17,7 @@ type Config struct {
 	}
 }
 
+// LoadConfig loads the configuration file required for the program to function
 func LoadConfig() Config {
 	cfg := Config{}
 	if _, err := os.Stat("config.yml"); os.IsNotExist(err) {
@@ -41,6 +43,7 @@ func LoadConfig() Config {
 	return cfg
 }
 
+// DefaultConfig returns the default configuration data
 func DefaultConfig() Config {
 	cfg := Config{}
 	cfg.Email.Enabled = true

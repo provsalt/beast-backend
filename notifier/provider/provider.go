@@ -34,6 +34,7 @@ func (p Provider) ContactInfo() string {
 	return p.Contact
 }
 
+// Send ...
 func (p Provider) Send() bool {
 	return false
 }
