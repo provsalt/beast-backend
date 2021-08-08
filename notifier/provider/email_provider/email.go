@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-// Email is the provider that sends email to users.
+// Email is the provider that sends email to user.
 type Email struct {
 	provider.Provider
 
