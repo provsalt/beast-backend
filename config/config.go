@@ -9,11 +9,16 @@ import (
 
 // Config is the configuration structure
 type Config struct {
-	Email struct {
-		Enabled       bool   `yaml:"enabled"`
-		MailgunDomain string `yaml:"mailgun_domain"`
-		MailgunAPIKey string `yaml:"mailgun_api_key"`
-		Domain        string `yaml:"domain"`
+	Notifier struct {
+		Email struct {
+			Enabled       bool   `yaml:"enabled"`
+			MailgunDomain string `yaml:"mailgun_domain"`
+			MailgunAPIKey string `yaml:"mailgun_api_key"`
+			Domain        string `yaml:"domain"`
+		}
+	}
+	Webserver struct {
+		Host string
 	}
 }
 
@@ -46,9 +51,9 @@ func LoadConfig() Config {
 // DefaultConfig returns the default configuration data
 func DefaultConfig() Config {
 	cfg := Config{}
-	cfg.Email.Enabled = true
-	cfg.Email.MailgunAPIKey = "APIKEY"
-	cfg.Email.MailgunDomain = "email.example.com"
-	cfg.Email.Domain = "example.com"
+	cfg.Notifier.Email.Enabled = true
+	cfg.Notifier.Email.MailgunAPIKey = "APIKEY"
+	cfg.Notifier.Email.MailgunDomain = "email.example.com"
+	cfg.Notifier.Email.Domain = "example.com"
 	return cfg
 }
