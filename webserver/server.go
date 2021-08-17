@@ -7,6 +7,7 @@ import (
 	"github.com/provsalt/beast-backend/config"
 	"github.com/provsalt/beast-backend/webserver/root"
 	"github.com/provsalt/beast-backend/webserver/stats"
+	"github.com/provsalt/beast-backend/webserver/workers"
 	"log"
 	"net/http"
 	"time"
@@ -24,6 +25,7 @@ func New(cfg config.Config) {
 
 	r.HandleFunc("/", root.Handler).Methods(http.MethodGet)
 	r.HandleFunc("/stats", stats.QueryStats).Methods(http.MethodGet)
+	r.HandleFunc("/workers", workers.QueryWorkers).Methods(http.MethodGet)
 
 	r.Use(mux.CORSMethodMiddleware(r))
 
@@ -32,5 +34,6 @@ func New(cfg config.Config) {
 			log.Println(err)
 		}
 	}()
+	log.Println("Started webserver and listening for connection on " + srv.Addr)
 	select {}
 }
